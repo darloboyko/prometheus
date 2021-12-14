@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>my_page</title>
+        <style>
+        .wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        }
+
+/* We tell all items to be 100% width, via flex-basis */
+        .wrapper > * {
+        flex: 1 100%;
+        }
+
+/* We rely on source order for mobile-first approach
+ * in this case:
+ * 1. header
+ * 2. article
+ * 3. aside 1
+ * 4. aside 2
+ * 5. footer
+ */
+
+/* Medium screens */
+        @media all and (min-width: 600px) {
+  /* We tell both sidebars to share a row */
+        .aside { flex: 1 auto; }
+        }
+
+/* Large screens */
+        @media all and (min-width: 800px) {
+  /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars 
+   */
+        .main { flex: 2 0px; }
+        .aside-1 { order: 1; }
+        .main    { order: 2; }
+        .aside-2 { order: 3; }
+        .footer  { order: 4; }
+        } 
+            
+        </style>
+    </head>
+    <body>
+        <div style="wrapper" id='@media'>
+            <div>Some text 1!</div>
+            <div>Some text 2!</div>
+            <div>Some text 3!</div>
+            <div>Some text 4!</div>
+            <div>Some text 5!</div>
+            <div>Some text 6!</div>
+            <div>Some text 7!</div>
+            <div>Some text 8!</div>
+            <div>Some text 9!</div>
+            <div>Some text 10!</div>
+            <div>Some text 11!</div>
+            <div>Some text 12!</div>
+        </div>
+    </body>
+</html>
